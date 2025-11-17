@@ -48,7 +48,7 @@ body {
 
 .navbar .nav-links a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 1rem;
     transition: color 0.3s ease;
 }
@@ -58,25 +58,87 @@ body {
 }
 
 /* Hamburger Menü */
+/* ======================= */
+/*      HAMBURGER          */
+/* ======================= */
 .hamburger {
-    display: none;
+    display: flex;                /* mobiilde görünsün */
     cursor: pointer;
     flex-direction: column;
     justify-content: space-between;
-    height: 20px;
+    height: 22px;
     width: 30px;
+    z-index: 1001;                /* menünün üstünde */
 }
 
 .hamburger .bar {
-    background-color: rgb(24, 23, 23);
+    background-color: #000;
     height: 4px;
     width: 100%;
     border-radius: 5px;
+    transition: 0.3s ease;        /* animasyon */
 }
 
-/* Menü Aktif Durum */
+/* Hamburger → X dönüşümü */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ======================= */
+/*   MENÜ (MOBİL)          */
+/* ======================= */
+.nav-links {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px;                /* gizli */
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    padding: 90px 30px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: 0.35s ease;       /* smooth slide */
+    z-index: 1000;
+}
+/* TAM EKRAN OVERLAY (arka plan karartma) */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 900; /* menünün arkasında, hamburgerden küçük */
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Menü Açıkken */
 .nav-links.active {
-    display: block;
+    right: 0;                     /* sağdan kayarak gelir */
+    display: flex !important;
 }
 
 /* Hero Section */
@@ -669,4 +731,41 @@ body {
         text-decoration: none;
         font-size: 1.2rem;
     }
+}
+/* Sağ Alt Sabit Sosyal Medya Kutuları */
+.floating-social {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.social-btn.insta {
+    background: #e1306c;
+}
+
+.social-btn.yt {
+    background: #ff0000;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
 }
