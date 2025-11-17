@@ -1,6 +1,17 @@
-// Hamburger Menü İşlevselliği
-document.getElementById("hamburger").addEventListener("click", function() {
-    document.getElementById("navLinks").classList.toggle("active");
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+const overlay = document.getElementById("overlay");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+    overlay.classList.remove("active");
 });
 
 AOS.init({
