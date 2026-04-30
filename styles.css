@@ -1,4 +1,6 @@
-/* Temel Stil */
+/* ============================= */
+/* RESET */
+/* ============================= */
 
 * {
     margin: 0;
@@ -7,765 +9,877 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    margin-top: 80px; /* Navbar'ın üst kısımları kapatmaması için boşluk */
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #ffffffbb;
-    color: rgb(0, 0, 0);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-}
-
-.navbar .logo img {
-    height: 50px; /* Yüksekliği ayarlayabilirsin */
-    width: auto; /* Yükseklikle orantılı olarak genişlik otomatik belirlenir */
-}
-
-.navbar .logo h1 {
-    font-size: 1rem;
-    margin-left: 20px;
- font-family: 'BARTKEY', sans-serif;
-}
-
-.navbar .nav-links {
-    list-style-type: none;
-    display: flex;
-    margin-right: 20px;
-}
-
-.navbar .nav-links li {
-    margin-left: 40px;
-}
-
-.navbar .nav-links a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover {
-    color: #ff9900;
-}
-
-/* Hamburger Menü */
-/* ======================= */
-/*      HAMBURGER          */
-/* ======================= */
-.hamburger {
-    display: flex;                /* mobiilde görünsün */
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 22px;
-    width: 30px;
-    z-index: 1001;                /* menünün üstünde */
-}
-
-.hamburger .bar {
-    background-color: #000;
-    height: 4px;
-    width: 100%;
-    border-radius: 5px;
-    transition: 0.3s ease;        /* animasyon */
-}
-
-/* Hamburger → X dönüşümü */
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-/* ======================= */
-/*   MENÜ (MOBİL)          */
-/* ======================= */
-.nav-links {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-.nav-links {
-    position: fixed;
-    top: 0;
-    right: -260px;                /* gizli */
-    width: 260px;
-    height: 100%;
-    background: #ffffffa8;
-    padding: 90px 30px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    transition: 0.35s ease;       /* smooth slide */
-    z-index: 1000;
-}
-/* TAM EKRAN OVERLAY (arka plan karartma) */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0,0,0,0.6);  /* %60 karanlık */
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s ease;
-    z-index: 900;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-
-/* Menü Açıkken */
-.nav-links.active {
-    right: 0;                     /* sağdan kayarak gelir */
-    display: flex !important;
-}
-
-/* Hero Section */
-.hero-section {
-    background: url('your-image.jpg') no-repeat center center/cover;
-    height: 140vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: rgb(0, 0, 0);
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-out;
-    font-family: 'LondonBetween', sans-serif;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-/* CTA Buton Stili */
-.cta-button {
-    display: inline-block;
-    background-color: #4c64da; /* Butonun arka plan rengi */
-    color: #ffffff; /* Yazı rengi beyaz */
-    font-size: 1.2rem; /* Font boyutu */
-    padding: 15px 30px; /* Buton içi boşluk */
-    text-decoration: none; /* Alt çizgiyi kaldır */
-    border-radius: 50px; /* Yuvarlatılmış köşeler */
-    font-weight: bold; /* Kalın yazı tipi */
-    transition: background-color 0.3s, transform 0.3s ease; /* Hover animasyonu */
-    text-align: center; /* Yazıyı ortala */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Gölgeleme efekti */
-}
-
-.cta-button:hover {
-    background-color: #5064bc; /* Hover durumunda renk değişimi */
-    transform: translateY(-5px); /* Hover sırasında butonun biraz yukarı kayması */
-}
-
-.cta-button:active {
-    transform: translateY(2px); /* Butona tıklandığında biraz aşağıya kayması */
-}
-
-.social-icons {
-    margin-top: 40px;
-}
-
-.social-icon {
-    font-size: 2rem; /* İkon boyutu */
-    color: #333; /* İkon rengi */
-    margin: 0 15px; /* İkonlar arasında boşluk */
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icon:hover {
-    color: #504c4c; /* Hover durumunda ikon rengi değişir */
-    transform: translateY(-5px); /* Hoverda ikonlar hafifçe yukarı kayar */
-}
-
-.social-icon:active {
-    transform: translateY(2px); /* Tıklama efekti */
-}
-
-/* Logo ve Logo İçeriği */
-.psycholog-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.logo-container {
-    background-color: #ffffff; /* Arka plan rengi */
-    padding: 20px 40px;
-    border: 3px #333;
-    border-radius: 15px; /* Kenarları yuvarlat */
-    margin-right: 20px; /* Logo ile metin arasına boşluk ekle */
-}
-
-.psycholog-logo h1 {
-    color: rgb(8, 42, 110); /* Yazı rengi beyaz */
-    font-size: 1.2rem; /* Başlık boyutu */
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.psycholog-img {
-    height: 90px; /* Logo resminin boyutu */
-    width: auto; /* Orantılı genişlik */
-    margin-left: 60px;
-    border-radius: 20px;
-}
-
-/* Hero Section */
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-}
-
-/* Resim Stili */
-.img-1 {
-    display: inline-block;
-    overflow: hidden; /* Kenarları yuvarlatırken taşan kısımları gizler */
-    border-radius: 15px; /* Kenarları yuvarlat */
-    max-width: 100%; /* Resmin genişliği maksimum kapsayıcı genişliğine uyumlu */
-    height: auto; /* Yüksekliği otomatik olarak ayarla */
-}
-
-.img-resim {
-    width: 500px;  /* Genişliği sabit 500px yap */
-    height: 300px; /* Yüksekliği sabit 270px yap */
-    display: block;
-    border-radius: 18px;
-}
-
-/* Mobil Uyum için Media Queries */
-@media (max-width: 768px) {
-    /* Navbar */
-    .navbar {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .navbar .logo {
-        margin-bottom: 10px;
-    }
-
-    .navbar .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    .navbar .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .navbar .nav-links li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .navbar .nav-links a {
-        font-size: 1.3rem;
-    }
-
-    /* Hero Section */
-    .hero-section {
-        padding: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .img-1 {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .img-resim {
-        width: 100%; /* Resmin genişliğini %100 yap */
-        height: auto; /* Yüksekliği orantılı tut */
-    }
-}
-
-/* Daha küçük ekranlar için daha fazla uyum */
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .cta-button {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-
-    .social-icon {
-        font-size: 1.5rem;
-        margin: 0 10px;
-    }
-
-    .navbar .nav-links a {
-        font-size: 1.1rem;
-    }
-}
-
-
-/* Hero2 Section */
-#hero-2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-}
-
-/* Hero2 Logo */
-.hero2-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.hero2-logo .logo-container {
-    background-color: #f6e8e8;
-    padding: 15px 30px;
-    border-radius: 10px;
-    margin-right: 20px;
-}
-
-.hero2-logo h1 {
-    color: rgb(8, 42, 110);
-    font-size: 2rem;
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.hero2-img {
-    height: 70px;
-    width: auto;
-    margin-left: 20px;
-}
-
-/* Hero2 Container */
-.hero2-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
-
-/* Her bir bölümün stili */
-.hero2-1, .hero2-2, .hero2-3, .hero2-4, .hero2-5, .hero2-6 {
-    width: 30%;
-    min-height: 200px; /* En küçük yüksekliği belirle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-size: cover;  /* Fotoğrafın tamamını kapsamasını sağlar */
-    background-position: center;
-    border-radius: 10px;
-    color: white; /* Yazının rengini beyaz yap */
-    text-align: center;
-    margin: 10px;
-    position: relative;
-    overflow: hidden; /* Taşmalar gizlensin */
-}
-
-/* Arka plan resimlerini burada ekle */
-.hero2-1 {
-    background-image: url('bireysel\ danışman.jpg');
-}
-
-.hero2-2 {
-    background-image: url('hizmet-cocuk-ve-ergen-terapisi_.jpg');
-}
-
-.hero2-3 {
-    background-image: url('Aile-Terapisi.webp');
-}
-
-.hero2-4 {
-    background-image: url('online.webp');
-}
-
-.hero2-5 {
-    background-image: url('kurumsal\ terapi.jpg');
-}
-
-.hero2-6 {
-    background-image: url('eğiitim.webp');
-}
-
-/* Yarı saydam arka plan eklemek için */
-.hero2-1::before, .hero2-2::before, .hero2-3::before, .hero2-4::before, .hero2-5::before, .hero2-6::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);  /* Yarı saydam siyah zemin */
-    border-radius: 10px;
-    z-index: 1;
-}
-
-/* Hover ile bulanıklaştırma sadece arka plan */
-.hero2-1:hover::before, .hero2-2:hover::before, .hero2-3:hover::before, .hero2-4:hover::before, .hero2-5:hover::before, .hero2-6:hover::before {
-    filter: blur(5px); /* 5px bulanıklık efekti */
-}
-
-/* Başlık yazısının üstte görünmesi için */
-.hero2-1 h1, .hero2-2 h1, .hero2-3 h1, .hero2-4 h1, .hero2-5 h1, .hero2-6 h1 {
-    position: relative;
-    z-index: 2;  /* Yazıyı üstte tutmak için */
-    font-size: 1.5rem; /* Yazı boyutunu ayarlayabilirsin */
-    font-weight: bold;
-}
-
-/* Mobil uyum için */
-@media (max-width: 768px) {
-    .hero2-1, .hero2-2, .hero2-3, .hero2-4, .hero2-5, .hero2-6 {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .hero2-logo h1 {
-        font-size: 1.5rem;
-    }
-
-    .hero2-img {
-        height: 50px;
-    }
-}
-
-/* Hizmet Detayları Başlık ve Açıklama Stili */
-/* Hizmet Detayları Başlık ve Açıklama Stili */
-.logo2-container {
-    text-align: center;  /* Başlık ve açıklamayı ortalar */
-    padding: 20px;
-    margin: 40px auto;  /* Her iki tarafta da boşluk bırakır */
-    max-width: 800px;  /* Konteynerin genişliğini sınırla */
-    background-color: #ffffff;  /* Hafif arka plan rengi */
-    border-radius: 10px;  /* Kenarları yuvarla */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Gölgeleme efekti */
-}
-
-/* Başlık stili */
-.logo2-container h1 {
-    font-size: 2.5rem;  /* Başlık büyüklüğü */
-    font-weight: bold;
-    color: rgb(80, 58, 178);  /* Başlık rengi */
-    margin-bottom: 15px;  /* Başlık ile paragraf arasında boşluk */
-    font-family: 'Times New Roman', Times, serif;
-}
-
-/* Açıklama paragrafı stili */
-.logo2-container p {
-    font-size: 1.2rem;  /* Paragraf boyutu */
-    color: rgb(21, 18, 18);  /* Paragraf yazı rengi */
-    line-height: 1.6;  /* Satır aralığı */
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Mobil uyum için */
-@media (max-width: 768px) {
-    /* Konteynerin genişliği küçük ekranlar için tamamen uyumlu */
-    .logo2-container {
-        width: 90%;  /* Kapsayıcı genişliği küçük ekranlarda %90 olacak */
-        margin: 20px auto;  /* Üst ve alt boşlukları ayarladık */
-        padding: 15px;  /* İçerideki boşlukları biraz küçülttük */
-    }
-
-    /* Başlık boyutunu küçült */
-    .logo2-container h1 {
-        font-size: 2rem;  /* Başlık boyutunu daha küçük yapalım */
-    }
-
-    /* Açıklama font boyutunu küçült */
-    .logo2-container p {
-        font-size: 1rem;  /* Paragraf font boyutunu mobil için biraz küçülttük */
-    }
-}
-
-@media (max-width: 480px) {
-    /* Daha küçük ekranlar için başlık ve paragraf arasındaki mesafeyi ayarlayalım */
-    .logo2-container h1 {
-        font-size: 1.8rem;  /* Başlık font boyutunu daha da küçült */
-    }
-
-    .logo2-container p {
-        font-size: 0.9rem;  /* Paragrafı daha da küçült */
-    }
-}
-
-
-
-
-/* Footer Section */
-.footer {
-    background-color: #000000; /* Arka plan siyah */
-    color: white; /* Yazı rengi beyaz */
-    padding: 40px 20px;
-    text-align: center;
-}
-
-/* Footer Logo */
-.footer-logo {
-    margin-bottom: 20px;
-}
-
-.footer-logo-img {
-    height: 50px; /* Logo boyutu */
-    width: auto;
-    margin-bottom: 10px;
-}
-
-.footer-logo h1 {
-    font-size: 1.8rem; /* Başlık boyutu */
-    font-weight: bold;
-    margin: 0;
-}
-
-/* Footer Content */
-.footer-content p {
-    font-size: 1rem; /* Açıklama metni boyutu */
+    font-family: 'Inter', sans-serif;
+    background-color: #f6f3ee;
+    color: #2b2b2b;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-/* Social Icons */
-.footer-social-icons {
-    margin-top: 20px;
-}
+/* ============================= */
+/* GLOBAL CONTAINER */
+/* ============================= */
 
-.footer-social-icons .social-icon {
-    font-size: 2rem; /* Sosyal medya ikonları boyutu */
-    color: white; /* İkon rengi */
-    margin: 0 15px; /* İkonlar arasındaki boşluk */
-    transition: color 0.3s ease;
-}
-
-.footer-social-icons .social-icon:hover {
-    color: #ff9900; /* Hover rengi */
-}
-
-
-
-/* FAQ Section */
-.faq-section {
-    background-color: #f9f9f9;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.faq-container {
-    max-width: 800px;
+.container {
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.faq-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-weight: bold;
-    color: #333;
-}
+/* ============================= */
+/* HEADER */
+/* ============================= */
 
-/* FAQ Item */
-.faq-item {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-/* FAQ Question Button */
-.faq-question {
     background-color: #ffffff;
-    color: rgb(14, 14, 14);
-    font-size: 1.2rem;
-    padding: 10px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    border-radius: 6px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e0d9;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 60px;  /* Logo boyutunu ayarla */
+    height: auto;
+    margin-right: 10px;  /* Yazıyla arada boşluk bırak */
+}
+
+.logo h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2b2b2b;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+.nav a.highlight {
+    color: rgb(186, 124, 18); /* altın rengi */
+}
+.nav a:hover {
+    color: #8a7f73;
+}
+/* Hamburger simgesi */
+.menu-toggle {
+    display: none; /* Masaüstünde gizli */
+    font-size: 28px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-/* FAQ Answer */
-.faq-answer {
-    display: none;
-    padding-top: 10px;
-    font-size: 1rem;
-    color: #422cc0;
-    text-align: left;
+/* Mobil ekran */
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+  position: relative; /* içerik ve bg için referans */
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Hover efekti */
-.faq-question:hover {
-    background-color: #9b9b9b;
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(40px);
+  z-index: 0; /* içerik üstünde değil */
 }
 
-/* Active state (tıklanmışsa göster) */
-.faq-item.active .faq-answer {
-    display: block;
-}
-
-/* Mobil uyum */
-@media (max-width: 768px) {
-    .faq-section {
-        padding: 40px 20px;
-    }
-
-    .faq-container h2 {
-        font-size: 1.8rem;
-    }
-
-    .faq-question {
-        font-size: 1rem;
-        padding: 8px;
-    }
-
-    .faq-answer {
-        font-size: 0.9rem;
-    }
-}
-
-
-
-#iletisim {
-  background: #f9f9f9;
-  padding: 50px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+.hero-content {
+  position: relative; /* içerik hero içinde normal flow'da */
+  z-index: 1; /* mutlaka üstte olmalı */
   text-align: center;
+  color: white;
+  padding: 2rem;
 }
 
-#iletisim .container {
-  max-width: 600px;
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.hero-text h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #6b6b6b;
+    margin-bottom: 30px;
+    z-index: 1;
+}
+.hero-text h3 {
+   font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #ac850f;
+    z-index: 1;
+}
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid #2b2b2b;
+    text-decoration: none;
+    color: #2b2b2b;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    z-index: 1;
+
+    margin-right: 12px; /* ← butonlar arası boşluk */
+}
+
+.btn-primary:last-child {
+    margin-right: 0; /* son butonda ekstra boşluk olmasın */
+}
+
+.btn-primary:hover {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+.hero-image {
+    width: 100%;
+    max-width:  600px;
+    z-index: 1;
+    overflow: visible;
+}
+
+.blob-svg {
+    width: 100%;
+    height: auto;
+    transition: 0.6s ease;
+    
+}
+
+.hero-image:hover .blob-svg {
+    transform: translateY(-10px) scale(1.03);
+}
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+.about {
+  padding: 120px 0;
+  background-color: #f8f6f2;
+  position: relative; /* SVG için referans noktası */
+  overflow: hidden;   /* taşmaları gizle */
+}
+.about-bg {
+  position: absolute;
+  top: 190px;   /* section üstünden biraz aşağı */
+  left: 120px;  /* section solundan biraz içeri */
+  width: 300px;  /* SVG genişliği */
+  height: 300px; /* SVG yüksekliği */
+  z-index: 0;
+}
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  position: relative; /* metin SVG’nin üstünde olacak */
+  z-index: 1;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-subtitle {
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #c6a96d;
+  font-weight: 600;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin: 20px 0;
+  color: #2e2e2e;
+}
+
+.about-text p {
+  font-family: 'Inter', sans-serif;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid #2e2e2e;
+  text-decoration: none;
+  color: #2e2e2e;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #2e2e2e;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Oval foto */
+.about-image img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 50% / 40%;
+}
+.services {
+  text-align: center;
+  padding: 50px 10%;
+  background-color: #f8f6f2;
+  z-index: 1;
+}
+
+.services-title {
+    z-index: 1;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
+}
+
+.services-container {
+  display: flex;
+  z-index: 1;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  width: 230px ;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f6f2;
+  border-radius: 10px;
+z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    
+  transform: translateY(-10px);
+}
+
+.service-icon {
+    z-index: 1;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #777;
+  z-index: 1;
+}
+
+.all-services-btn {
+  display: inline-block;
+  z-index: 1;
+  padding: 20px 38px;
+  border: 1px solid #2e2e2e;
+  text-decoration: none;
+  color: #2e2e2e;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  margin-top: 40px; /* Bu satır butonu biraz daha aşağıya çeker */
+}
+
+.all-services-btn:hover {
+ background-color: #2e2e2e;
+  color: rgb(255, 255, 255);
+  transform: translateY(-3px);
+  
+}
+.services h5{ font-size: 18px;
+  letter-spacing: 3px;
+  color: #c6a96d;
+  font-weight: 600;
+z-index: 1;
+margin-bottom: 40px;
+ font-family: 'Playfair Display', serif;
+margin-top: auto;}
+/* Online Terapi Section */
+/* Online Terapi Section */
+.online-therapy {
+  background: linear-gradient(135deg, #a0c4ff, #6c5ce7);
+  padding: 80px 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.online-therapy .online-bg {
+  display: flex;
+  align-items: center;  /* Ikon ve başlığı dikeyde ortalar */
+  margin-right: 10px;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.online-therapy .size-6 {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.online-therapy .size-6:hover {
+  transform: scale(1.1);
+}
+
+.online-therapy .container {
+  max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#iletisim h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #4646c9;
+.online-therapy h2 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  gap: 15px; /* İkon ve başlık arasındaki boşluk */
 }
 
-#iletisim p {
-  font-size: 1.1rem;
+.online-therapy p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
   margin-bottom: 30px;
 }
 
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* Mobilde hamburger menüsünü görünür yap */
-    }
-
-    .nav-links {
-        display: none; /* Başlangıçta gizli */
-        width: 100%;
-        text-align: center;
-        position: absolute;
-        top: 60px; /* Menü çok üstte olmasın diye */
-        left: 0;
-        background-color: #333;
-    }
-
-    .nav-links.active {
-        display: block; /* Menü aktif olduğunda görünür */
-    }
-
-    .nav-links li {
-        padding: 10px;
-        width: 100%;
-    }
-
-    .nav-links a {
-        color: white; /* Link rengi beyaz */
-        text-decoration: none;
-        font-size: 1.2rem;
-    }
+.online-therapy .btn {
+  padding: 15px 40px;
+  background-color: #6c5ce7;
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
 }
-/* Sağ Alt Sabit Sosyal Medya Kutuları */
-.floating-social {
+
+.online-therapy .btn:hover {
+  background-color: #5a4cd2;
+  transform: translateY(-5px);
+}
+
+
+
+  .contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f6f2;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  .contact-form {
+    width: 50%;
+  }
+
+  .contact-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .contact-form .submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .contact-info {
+    width: 40%;
+  }
+
+  #whatsapp-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 999;
+    background-color: #25D366;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+.contact-form h2{
+     font-family: 'Playfair Display', serif;
+    color: #c6a96d;
 }
-
-.social-btn {
+  #whatsapp-icon img {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    justify-content: center;
+  }
+.container-section{
+        display: flex;
     align-items: center;
-    font-size: 22px;
-    cursor: pointer;
+    justify-content: space-between;
+    gap: 60px;
+    z-index: 1;
+}
+/* Genel footer stili */
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer içeriği düzeni */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Sol Kısım */
+.footer-left {
+    flex: 1;
+    text-align: left;
+    padding-left: 50px; /* Sol tarafa padding ekledim */
+}
+
+.footer-logo {
+    max-width: 200px;
+}
+
+.footer-description {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+}
+
+/* Sağ Kısım */
+.footer-right {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu, .therapies, .contact {
+    text-align: left;
+}
+
+h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #c6a96d;
+   font-family: 'Playfair Display', serif;
+}
+
+p a {
+    color: white;
     text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    font-size: 14px;
 }
 
-.social-btn.insta {
-    background: #e1306c;
+p a:hover {
+    text-decoration: underline;
 }
 
-.social-btn.yt {
-    background: #ff0000;
+/* Alt Kısım */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
 }
 
-.social-btn:hover {
-    transform: scale(1.1);
+/* WhatsApp İkonu */
+.fab.fa-whatsapp {
+    font-size: 30px;
+    color: white;
+    margin-top: 10px;
+}
+.footer-left h3{
+    font-family: 'Playfair Display', serif;
+    color: #c6a96d;
+}
+.container h4{
+     font-family: 'Playfair Display', serif;
+    color: #c6a96d;
+}
+/* ÖNCE TÜM ESKİ @MEDIA BLOKLARINI SİL, SONRA BUNU EN ALTA EKLE */
+/* ============================= */
+/* MOBILE RESPONSIVE            */
+/* ============================= */
+
+@media (max-width: 992px) {
+    /* Header */
+    .nav ul {
+        gap: 20px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    /* Hero */
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 34px;
+    }
+
+    .hero-text h3 {
+        font-size: 22px;
+    }
+
+    .hero-image {
+        max-width: 450px;
+    }
+
+    /* About */
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image img {
+        width: 300px;
+        height: 380px;
+    }
+
+    .about-bg {
+        top: 80px;
+        left: 50px;
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Services */
+    .services-container {
+        justify-content: center;
+    }
+
+    .service-item {
+        width: 45%;
+    }
+
+    /* Online Therapy */
+    .online-therapy .online-bg {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .online-therapy h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Contact */
+    .contact-section {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 100%;
+    }
+
+    .container-section {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-left {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header - Hamburger Menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e0d9;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav.active {
+        max-height: 300px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .nav li {
+        padding: 12px 20px;
+        border-bottom: 1px solid #f0ebe4;
+    }
+
+    .nav li:last-child {
+        border-bottom: none;
+    }
+
+    /* Hero */
+    .hero {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-text h2 {
+        font-size: 16px;
+    }
+
+    .hero-text h3 {
+        font-size: 20px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .hero-image {
+        max-width: 320px;
+    }
+
+    /* About */
+    .about {
+        padding: 80px 0;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    .about-image img {
+        width: 260px;
+        height: 320px;
+    }
+
+    /* Services */
+    .service-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .services-title {
+        font-size: 1.6rem;
+    }
+
+    /* Online Therapy */
+    .online-therapy {
+        padding: 50px 15px;
+    }
+
+    .online-therapy h2 {
+        font-size: 1.8rem;
+        flex-direction: column;
+    }
+
+    .online-therapy p {
+        font-size: 1rem;
+    }
+
+    .online-therapy .btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .online-therapy .online-bg {
+        margin-top: 50px;
+    }
+
+    /* Contact */
+    .contact-section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Container */
+    .container {
+        width: 95%;
+    }
+
+    /* Header */
+    .logo-img {
+        width: 45px;
+    }
+
+    .logo h4 {
+        font-size: 18px;
+    }
+
+    /* Hero */
+    .hero-text h1 {
+        font-size: 24px;
+    }
+
+    .hero-text h2 {
+        font-size: 14px;
+    }
+
+    .hero-text h3 {
+        font-size: 18px;
+    }
+
+    .hero-image {
+        max-width: 280px;
+    }
+
+    /* About */
+    .about-text h2 {
+        font-size: 26px;
+    }
+
+    .about-subtitle {
+        font-size: 14px;
+    }
+
+    .about-image img {
+        width: 220px;
+        height: 280px;
+    }
+
+    .about-bg {
+        display: none;
+    }
+
+    /* Services */
+    .services {
+        padding: 40px 5%;
+    }
+
+    .services-title {
+        font-size: 1.4rem;
+    }
+
+    .service-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .all-services-btn {
+        padding: 15px 25px;
+        font-size: 14px;
+    }
+
+    /* Online Therapy */
+    .online-therapy h2 {
+        font-size: 1.5rem;
+    }
+
+    .online-therapy .size-6 {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Footer */
+    .social-icons a {
+        font-size: 24px;
+    }
 }
